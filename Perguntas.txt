@@ -1,0 +1,40 @@
+### Correlação
+
+5 - Há relação entre a média de rounds semibuy e a razão de rounds ganhos, se sim qual a relação?
+
+Variáveis: qtde rounds semibuy, razão rounds ganhos.
+
+Objetivo: Avaliar se estratégias intermediárias de compra afetam positivamente o desempenho.
+
+
+RESPOSTA:
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Calcular a correlação entre total_rounds_semibuy e razao_rounds_ganhos_perdidos
+correlation = df['total_rounds_semibuy'].corr(df['razao_rounds_ganhos_perdidos'])
+
+# Criar o gráfico de dispersão
+plt.figure(figsize=(10, 6))
+sns.regplot(x='total_rounds_semibuy', y='razao_rounds_ganhos_perdidos', data=df, ci=None, line_kws={"color": "red"})
+plt.title(f'Relação entre Rounds Semibuy e Razão de Rounds Ganhos\nCorrelação = {correlation:.2f}')
+plt.xlabel('Total de Rounds Semibuy')
+plt.ylabel('Razão de Rounds Ganhos/Perdidos')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+
+A relação de rounds jogados em semibuy e rounds ganhos é ligeiramente positiva, porém é fraca, pois há muita dispersão no gráfico que as correlaciona. Isso indica que os times analisados, quando jogam rounds em semibuy tem uma pequena tendência a ter uma razão de rounds ganhos/perdidos um pouco maior, porém, a relação ser fraca e muito dispersa sugere que outros fatores são mais determinantes na influencia na razão de rounds ganhos/perdidos.
+
+A relação entre os rounds jogados em semibuy e os rounds ganhos é levemente positiva, porém é fraca, pois os pontos no gráfico estão bem espalhados. Isso mostra que os times analisados tendem a ganhar um pouco mais quando jogam rounds em semibuy, mas essa tendência é pequena. A grande dispersão indica que outros fatores têm mais influência na quantidade de rounds ganhos ou perdidos.
+
+### Distribuição de Bernoulli
+
+6 - Qual a probabilidade de um time vencer um round quando está em full buy vs. eco?
+
+    Variáveis: rounds full buy, rounds eco, rounds ganhos.
+
+    Objetivo: Modelar a chance de sucesso por tipo de compra (tratando cada round como um ensaio de Bernoulli).
+

@@ -1,0 +1,57 @@
+> # **TIPOS DE VARIÁVEIS DE CADA COLUNA**
+
+> ## COLUNA time:
+
+Varivável qualitativa nominal, estas variáveis são compostas pelo nome da equipe analisada.
+
+> ## COLUNA data:
+
+Variável quantitativa contínua, variáveis de data são computadas de forma contínua a partir de uma data inicial.
+
+> ## COLUNA adversario:
+
+Variável qualitativa nominal, estas variáveis são compostas pelos nomes das equipes que jogaram contra a equipe da coluna "time".
+
+> ## COLUNA vitoria:
+
+Variável quantitativa discreta, estas variáveis são compostas pelo informação de verdadeiro ou falso (1 ou 0) sobre a vitória ou derrota do time da coluna "time".
+
+> ## COLUNA melhor_de:
+
+Variável qualitativa nominal, estas variáveis são compostas pelo tipo de partida que foi disputada, como md1, md3 ou md5: (melhor de x).
+
+> ## COLUNA media_kd_time:
+
+Variável quantitativa contínua, estas variáveis são compostas pelas médias das razões de baixas/mortes (do inglês, kill/death ou k/d) do time da coluna "time".
+
+> ## COLUNA media_rating_2.1_time:
+
+Variável quantitativa contínua, estas variáveis são compostas pelas médias das
+
+> ## COLUNA media_ADR_time:
+
+Variável quantitativa contínua, estas variáveis são compostas pelas médias das
+
+> ## COLUNA total_rounds_eco:
+
+Variável quantitativa discreta, estas variáveis são compostas pelas quantidades de rounds disputados sem comprar armamentos (econômico ou eco) pelo time da coluna "time".
+
+> ## COLUNA total_rounds_semibuy:
+
+Variável quantitativa discreta, estas variáveis são compostas pelas quantidades de rounds disputados comprando poucos armamentos (meia compra ou semi buy) pelo time da coluna "time".
+
+> ## COLUNA total_rounds_full_buy:
+
+Variável quantitativa discreta, estas variáveis são compostas pelas quantidades de rounds disputados comprando armamentos (compra cheia ou full buy) pelo time da coluna "time".
+
+> ## COLUNA rounds_ganhos:
+
+Variável quantitativa discreta, estas variáveis são compostas pelas quantidade de rounds ganhos pelo time da coluna "time".
+
+> ## COLUNA rounds_perdidos:
+
+Variável quantitativa discreta, estas variáveis são compostas pelas quantidade de rounds perdidos pelo time da coluna "time".
+
+> ## COLUNA razao_rounds_ganhos_perdidos:
+
+Variável quantitativa contínua, estas variáveis são compostas pelas razões dos rounds ganhos/perdidos pelo time da coluna "time".
