@@ -26,15 +26,47 @@ plt.tight_layout()
 plt.show()
 
 
-A relação de rounds jogados em semibuy e rounds ganhos é ligeiramente positiva, porém é fraca, pois há muita dispersão no gráfico que as correlaciona. Isso indica que os times analisados, quando jogam rounds em semibuy tem uma pequena tendência a ter uma razão de rounds ganhos/perdidos um pouco maior, porém, a relação ser fraca e muito dispersa sugere que outros fatores são mais determinantes na influencia na razão de rounds ganhos/perdidos.
+Os rouds semibuy (que normalmente ocorrem quando o time está em desvantagem econômica) fazem parte integral das estratégias dos times de CS2, logo vamos analisar sua correlação com rounds ganhos por alguns times.
+A correlação calculada é de -0.41, ou seja, a relação entre os rounds jogados em semibuy e os rounds ganhos é levemente negativa, isso indica que quanto mais os times analisados jogam rounds em semibuy, mais eles tendem a perder estes rounds.
+Com base nesta análise, podemos dizer que times que dependem muito de ganhar rounds semibuy, tem uma menos eficiência geral em partidas.
 
-A relação entre os rounds jogados em semibuy e os rounds ganhos é levemente positiva, porém é fraca, pois os pontos no gráfico estão bem espalhados. Isso mostra que os times analisados tendem a ganhar um pouco mais quando jogam rounds em semibuy, mas essa tendência é pequena. A grande dispersão indica que outros fatores têm mais influência na quantidade de rounds ganhos ou perdidos.
+
 
 ### Distribuição de Bernoulli
 
 6 - Qual a probabilidade de um time vencer um round quando está em full buy vs. eco?
 
-    Variáveis: rounds full buy, rounds eco, rounds ganhos.
+Variáveis: rounds full buy, rounds eco, rounds ganhos.
 
-    Objetivo: Modelar a chance de sucesso por tipo de compra (tratando cada round como um ensaio de Bernoulli).
+Objetivo: Modelar a chance de sucesso por tipo de compra (tratando cada round como um ensaio de Bernoulli).
+
+
+RESPOSTA:
+
+# Para calcular a probabilidade de vitória em rounds full buy e eco,
+# vamos estimar a proporção de rounds ganhos sobre o total de cada tipo.
+
+# Total de rounds jogados por tipo
+df['total_rounds'] = df['total_rounds_eco'] + df['total_rounds_semibuy'] + df['total_rounds_full_buy']
+
+# Proporção de rounds de cada tipo no total
+df['prop_eco'] = df['total_rounds_eco'] / df['total_rounds']
+df['prop_full_buy'] = df['total_rounds_full_buy'] / df['total_rounds']
+
+# Estimar quantos dos rounds ganhos vieram de eco e de full buy assumindo proporcionalidade
+df['rounds_ganhos_eco'] = df['prop_eco'] * df['rounds_ganhos']
+df['rounds_ganhos_full_buy'] = df['prop_full_buy'] * df['rounds_ganhos']
+
+# Soma total de rounds e vitórias por tipo
+total_eco = df['total_rounds_eco'].sum()
+ganhos_eco = df['rounds_ganhos_eco'].sum()
+
+total_full = df['total_rounds_full_buy'].sum()
+ganhos_full = df['rounds_ganhos_full_buy'].sum()
+
+# Probabilidade estimada de vitória por tipo de round
+prob_eco = ganhos_eco / total_eco
+prob_full = ganhos_full / total_full
+
+(prob_eco, prob_full)
 
